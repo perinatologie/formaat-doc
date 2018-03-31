@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Hub XML Formaat</title>
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/monokai-sublime.css">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+
+        <header class="navbar navbar-default navbar-fixed-top">
+
+            <a class="navbar-brand navbar-right hidden-xs" href="https://doc.perinatologie.nl">
+                <img src="https://www.perinatologie.nl/assets/img/perinatologie.nl.png" style="width: 40px; float: left; margin-right: 5px;" />
+                doc.perinatologie.nl
+            </a>
+            <a class="navbar-brand" href="./">
+                Hub XML Formaat
+                <small class="hidden-xs hidden-sm">
+                    Implementatie handleiding
+                </small>
+            </a>
+        </header>
+
+        <main class="container-fluid">
+            <div class="row">
+
+                
+                    <nav id="sidebar" class="col-sm-3 col-lg-2" role="navigation">
+
+                        <ul class="nav nav-pills nav-stacked">
+                                                            <li class="">
+                                                                                                                        <a href="./">
+                                                                                                                    Inleiding
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                                                                                                        <a href="elementen.html">
+                                                                                                                    Elementen
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                                                                                                        <a href="voorbeelden.html">
+                                                                                                                    Voorbeelden
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                                                                                                        <a href="github.html">
+                                                                                                                    GitHub
+                                    </a>
+                                </li>
+                                                    </ul>
+
+                    </nav>
+
+                
+                <section id="content" class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
+                   <h1 id="verouderde-informatie">VEROUDERDE INFORMATIE</h1>
+<h2 id="structuur">Structuur</h2>
+<p>Dit formaat bevat 1 client element, met daarbinnen een reeks ‘value’ elementen, welke informatie over de client bevatten.</p>
+<p>Elke value element bevat een <code>label</code> attribuut (tbv eenvoudige weergave), een daadwerkelijke <code>value</code> attribuut, en in veel gevallen een “keyid”.</p>
+<p>Om de informatie te tonen volstaat het dus om door de value elementen te lopen, en ovv label en value de informatie aan de gebruiker te tonen.</p>
+<p>Voor verdere integratie is er de mogelijkheid om de labels te negeren, en te kijken naar de keyids. Obv de keyid kan er een mapping worden gemaakt daar velden in het ontvangende systeem, om hiermee de locale informatie bij te werken.</p>
+<p>Binnen elk client element zit 1 <code>eocs</code> element, met hier binnen een of meerdere <code>eoc</code> (episode of care) elementen.</p>
+<p>Binnen deze eoc elementen zitten binnen het forms element weer een of meerdere form elementen. Deze form elementen worden gebruikt om de data per onderwerp te groeperen.</p>
+<p>Ook hier kan ter weergave het label attribuut worden gebruikt, en optioneel voor verdere integratie obv keyid een mapping worden gedaan.</p>
+<p>In de volgende hoofdstukken worden de volgende concepten toegelicht:</p>
+<ul>
+<li>resource: Elk bestand bevat 1 resource (document, dossier, zwangerschap).</li>
+<li>section: Een resource bevat 1 of meerdere sections</li>
+<li>value: Elke section bevat 1 of meerdere values</li>
+</ul>
+                </section>
+
+            </div>
+        </main>
+
+        <footer>
+            <div class="container-fluid">
+                <p class="text-muted">
+                    <a href="https://www.perinatologie.nl">perinatologie.nl</a>
+                </p>
+            </div>
+
+                            <a class="github-link" href="https://github.com/perinatologie/formaat-doc">
+                    <i class="fa fa-github"></i>
+                    Dit document is open-source, bijdragen kan via github.
+                </a>
+            
+        </footer>
+
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script src="//yastatic.net/highlightjs/8.2/highlight.min.js"></script>
+
+        <script>
+            $(function() {
+                $("section>h1").wrap('<div class="page-header" />');
+                // Syntax highlighting
+                hljs.initHighlightingOnLoad();
+            });
+        </script>
+
+    </body>
+</html>

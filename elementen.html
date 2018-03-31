@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Hub XML Formaat</title>
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/monokai-sublime.css">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+
+        <header class="navbar navbar-default navbar-fixed-top">
+
+            <a class="navbar-brand navbar-right hidden-xs" href="https://doc.perinatologie.nl">
+                <img src="https://www.perinatologie.nl/assets/img/perinatologie.nl.png" style="width: 40px; float: left; margin-right: 5px;" />
+                doc.perinatologie.nl
+            </a>
+            <a class="navbar-brand" href="./">
+                Hub XML Formaat
+                <small class="hidden-xs hidden-sm">
+                    Implementatie handleiding
+                </small>
+            </a>
+        </header>
+
+        <main class="container-fluid">
+            <div class="row">
+
+                
+                    <nav id="sidebar" class="col-sm-3 col-lg-2" role="navigation">
+
+                        <ul class="nav nav-pills nav-stacked">
+                                                            <li class="">
+                                                                                                                        <a href="./">
+                                                                                                                    Inleiding
+                                    </a>
+                                </li>
+                                                            <li class="active">
+                                                                                                                        <a href="elementen.html">
+                                                                                                                    Elementen
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                                                                                                        <a href="voorbeelden.html">
+                                                                                                                    Voorbeelden
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                                                                                                        <a href="github.html">
+                                                                                                                    GitHub
+                                    </a>
+                                </li>
+                                                    </ul>
+
+                    </nav>
+
+                
+                <section id="content" class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
+                   <h2 id="elementen">Elementen</h2>
+<h3 id="het">Het <code>resource</code> element</h3>
+<p>Binnen dit element bestaan de volgende attributen:</p>
+<ul>
+<li>type (verplicht): het type resource. Meest voorkomende waarde <code>hub/dossier</code></li>
+</ul>
+<p>Dit element is het root element van een hub resource document.</p>
+<h3 id="het-1">Het <code>section</code> element</h3>
+<p>Binnen het root <code>resource</code> element bestaan een of meerdere <code>section</code> elementen.
+Dit wordt gebruikt om een document onder te verdelen in logische onderdelen.</p>
+<p>Enkele voorbeeld section types:</p>
+<ul>
+<li>client: client informatie zoals naam, adres, woonplaats</li>
+<li>intake: uitgebreide intake gegevens</li>
+<li>zwangerschap.consult: een zwangerschaps consult, kan 0, 1 of meerdere keren voorkomen.</li>
+<li>baring.consult: baring consult gegevens, kan 0, 1 of meerdere keren voorkomen.</li>
+</ul>
+<p>Waar nodig kunnen deze typen na overeenkomst deelnemers worden aangevuld.</p>
+<p>Dit element bevat de volgende attributen</p>
+<ul>
+<li>Id (verplicht): unieke id voor deze section binnen 1 resource.</li>
+<li>type (optioneel): het type section. Voor weergave is dit attribuut niet vereist. Wanneer gegevens overgenomen of “inline” in een dossier getoond dienen te worden, dan is dit attribuut wel nodig.</li>
+<li>label (verplicht): Tbv weergave doeleinden.</li>
+<li>uuid (optioneel): Wanneer het record binnen het systeem van de verzender een eenduidige unieke identificatie heeft kan dit attribuut worden ingevuld. Alleen nodig igv van overname gegevens, om duplicatie tegen te gaan.</li>
+<li>createStamp (verplicht): wanneer het record is aangemaakt in betreffend record/section in bron systeem. Tbv weergave doeleinden. Bevat een unix timestamp.</li>
+<li>updateStamp (optioneel): laatste wijziging van betreffende record/section in bron systeem. Bevat een unix timestamp.</li>
+<li>effectStamp (optioneel): moment waarop deze section betrekking heeft. Bij een consult is dit bijvoorbeeld de consult-datum. Bevat een unix timestamp.
+
+<h3 id="het-2">Het <code>value</code> element</h3></li>
+</ul>
+<p>Binnen de <code>section</code> elementen bestaan een of meerdere <code>value</code> elementen.
+De value elementen bevatten de daadwerkelijke gegevens.</p>
+<p>Dit element bevat de volgende attributen</p>
+<ul>
+<li>label (verplicht): Label voor weergave doeleinden.</li>
+<li>value (verplicht): De waarde zoals geregistreerd in het bronsysteem. Wanneer het om een codelijst gaat staat hier de code (niet de tekst representatie).</li>
+<li>displayValue (optioneel): Waarde tbv weergave eindgebruiker. Wanneer de value een code betreft staat hier de voluit geschreven waarde. Wanneer dit attribuut leeg is zal de originele <code>value</code> worden getoond. In geval van tekst values kan dit veld daarom ook worden leeg gelaten.</li>
+<li>concept (optioneel): verwijzing naar gestandaardiseerd data element. Vul hier bv <code>peri22-dataelement-10030</code> in wanneer er een BSN gecommuniceerd wordt. Alleen nodig indien het doel is om gegevens over te nemen/verwerken. Voor dossier weergave is dit veld niet vereist.</li>
+<li>keyid (optioneel): verwijzing naar key id’s in spreadsheet “Dataset overzicht aansluting Hub”. Wij proberen de keyid’s uit te faseren en in plaats hiervan alleen gebruik te maken van het concept attribuut.</li>
+</ul>
+<h2 id="concept-keyid-of-allebij">concept, keyid, of allebij?</h2>
+<p>Het doel van de <code>concept</code> en <code>keyid</code> attributen zijn vergelijkbaar. Deelnemers volgen zoveel mogelijk gestandaardiseerde data elementen door gebruik te maken van het <code>concept</code> attribuut en hier <code>peri-dataelement-*</code> id’s in te geven.</p>
+<p>Tbv flexibele uitwisseling zijn er binnen het samenwerkingsverband in een vroeger tijdstip ook <code>keyid</code>s afgesproken. Wanneer het voor beide leveranciers eenvoudiger is om een <code>keyid</code> te communiceren ipv (of naast) een <code>concept</code>, dan blijft deze optie bestaan.</p>
+<p>Maar het advies is om vooral gebruik te maken van het <code>concept</code> attribuut. Zowel <code>keyid</code> als <code>concept</code> kunnen worden ingegeven wanneer deze bekend zijn, en aansluiten.</p>
+<p>Er wordt gewerkt aan een mapping tabel tussen keyids en elementen uit de peri22- dataset waar een een-op-een mapping mogelijk is.</p>
+<p></p>
+<h2 id="repeat-ids">Repeat IDs</h2>
+<p>Er zijn situaties te bedenken waarin een value binnen 1 section meerdere malen voorkomt. Denk bijvoorbeeld aan een section <code>zwangerschap.consult</code> bij een meerling. Dan kan de value voor ligging 2 keer voorkomen (1 per foetus). Voeg in dat geval een attribuut <code>repeatid</code> toe aan elk betreffend value element, beginnend bij 0, oplopend per value element van zelfde type (obv keyid of element attribuut).</p>
+<p>Bijvoorbeeld zwangerschaps consult voor een meerling:</p>
+<pre><code class="language-xml">&lt;section type=”zwangerschap.consult”&gt;
+  &lt;value
+    label=”AM duur”
+    value=”20+3”
+    concept=”peri22-dataelement-82316”
+    keyid=”amduur” /&gt;
+  &lt;value
+    label=”IUVD”
+    value=”nee”
+    concept=”peri22-dataelement-20410”
+    repeat=”0” /&gt;
+  &lt;value
+    label=”IUVD”
+    value=”nee”
+    concept=”peri22-dataelement-20410”
+    repeat=”1” /&gt;
+&lt;/section&gt;</code></pre>
+                </section>
+
+            </div>
+        </main>
+
+        <footer>
+            <div class="container-fluid">
+                <p class="text-muted">
+                    <a href="https://www.perinatologie.nl">perinatologie.nl</a>
+                </p>
+            </div>
+
+                            <a class="github-link" href="https://github.com/perinatologie/formaat-doc">
+                    <i class="fa fa-github"></i>
+                    Dit document is open-source, bijdragen kan via github.
+                </a>
+            
+        </footer>
+
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script src="//yastatic.net/highlightjs/8.2/highlight.min.js"></script>
+
+        <script>
+            $(function() {
+                $("section>h1").wrap('<div class="page-header" />');
+                // Syntax highlighting
+                hljs.initHighlightingOnLoad();
+            });
+        </script>
+
+    </body>
+</html>

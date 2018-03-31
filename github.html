@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Hub XML Formaat</title>
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/monokai-sublime.css">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+
+        <header class="navbar navbar-default navbar-fixed-top">
+
+            <a class="navbar-brand navbar-right hidden-xs" href="https://doc.perinatologie.nl">
+                <img src="https://www.perinatologie.nl/assets/img/perinatologie.nl.png" style="width: 40px; float: left; margin-right: 5px;" />
+                doc.perinatologie.nl
+            </a>
+            <a class="navbar-brand" href="./">
+                Hub XML Formaat
+                <small class="hidden-xs hidden-sm">
+                    Implementatie handleiding
+                </small>
+            </a>
+        </header>
+
+        <main class="container-fluid">
+            <div class="row">
+
+                
+                    <nav id="sidebar" class="col-sm-3 col-lg-2" role="navigation">
+
+                        <ul class="nav nav-pills nav-stacked">
+                                                            <li class="">
+                                                                                                                        <a href="./">
+                                                                                                                    Inleiding
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                                                                                                        <a href="elementen.html">
+                                                                                                                    Elementen
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                                                                                                        <a href="voorbeelden.html">
+                                                                                                                    Voorbeelden
+                                    </a>
+                                </li>
+                                                            <li class="active">
+                                                                                                                        <a href="github.html">
+                                                                                                                    GitHub
+                                    </a>
+                                </li>
+                                                    </ul>
+
+                    </nav>
+
+                
+                <section id="content" class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
+                   <h2 id="github-projecten">Github projecten</h2>
+<p>De dataset definities worden als open-source projecten beheerd via <a href="https://github.com">github.com</a>.</p>
+<p>Doelen:</p>
+<ul>
+<li>Alle deelnemers hebben altijd toegang tot de laatste versie van de definities.</li>
+<li>Iedereen is in staat aanvullingen en/of correcties in te sturen via een <a href="https://help.github.com/articles/about-pull-requests/">Github Pull Request</a></li>
+<li>Versie beheer</li>
+</ul>
+<p>Hiervoor zijn 2 repositories beschikbaar:</p>
+<h2 id="perinatologierealm-peri22">perinatologie/realm-peri22</h2>
+<p>Deze repository bevat de dataset definities zoals gepubliceerd door Nictiz via <a href="http://decor.nictiz.nl/perinatologie/"><a href="http://decor.nictiz.nl/perinatologie/">http://decor.nictiz.nl/perinatologie/</a></a>, getransformeerd
+naar <a href="realm">realm</a> formaat.</p>
+<p>De repository bevat update-scripts welke gebruikt kunnen worden om nieuwe publicaties
+te downloaden en opnieuw genereren.</p>
+<ul>
+<li>Link: <a href="https://github.com/perinatologie/realm-peri22"><a href="https://github.com/perinatologie/realm-peri22">https://github.com/perinatologie/realm-peri22</a></a></li>
+<li>Viewer: <a href="https://dataset.perinatologie.nl/peri22"><a href="https://dataset.perinatologie.nl/peri22">https://dataset.perinatologie.nl/peri22</a></a></li>
+</ul>
+<h2 id="perinatologierealm-peri22x">perinatologie/realm-peri22x</h2>
+<p>Deze repository bevat alle uitbreidingen op peri22 die nodig zijn binnen de PeriHub infrastructuur.</p>
+<p>Zie de bijbehorende README.md voor inhoudelijke details.</p>
+<ul>
+<li>Link: <a href="https://github.com/perinatologie/realm-peri22x"><a href="https://github.com/perinatologie/realm-peri22x">https://github.com/perinatologie/realm-peri22x</a></a></li>
+<li>Viewer: <a href="https://dataset.perinatologie.nl/peri22x"><a href="https://dataset.perinatologie.nl/peri22x">https://dataset.perinatologie.nl/peri22x</a></a></li>
+</ul>
+                </section>
+
+            </div>
+        </main>
+
+        <footer>
+            <div class="container-fluid">
+                <p class="text-muted">
+                    <a href="https://www.perinatologie.nl">perinatologie.nl</a>
+                </p>
+            </div>
+
+                            <a class="github-link" href="https://github.com/perinatologie/formaat-doc">
+                    <i class="fa fa-github"></i>
+                    Dit document is open-source, bijdragen kan via github.
+                </a>
+            
+        </footer>
+
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script src="//yastatic.net/highlightjs/8.2/highlight.min.js"></script>
+
+        <script>
+            $(function() {
+                $("section>h1").wrap('<div class="page-header" />');
+                // Syntax highlighting
+                hljs.initHighlightingOnLoad();
+            });
+        </script>
+
+    </body>
+</html>
