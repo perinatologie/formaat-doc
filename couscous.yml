@@ -1,0 +1,24 @@
+template:
+    url: https://github.com/perinatologie/perinatologie-couscous-template.git
+
+github:
+    user: perinatologie
+    repo: formaat-doc
+
+title: Hub XML Formaat
+subTitle: Implementatie handleiding
+
+# The left menu bar
+menu:
+    items:
+        home:
+            text: Inleiding
+            relativeUrl: ./
+        # structuur:
+        #     text: Structuur
+        elementen:
+            text: Elementen
+        voorbeelden:
+            text: Voorbeelden
+        github:
+            text: GitHub
